@@ -1,6 +1,8 @@
 package com.iamdeok.boad.controller;
 
 import com.iamdeok.boad.model.Article;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +14,9 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "/articles")
 public class ArticleController {
 
+    //logger
+    private static final Logger logger = LoggerFactory.getLogger(ArticleController.class);
+
     /**
      * @param model
      * @return
@@ -19,6 +24,9 @@ public class ArticleController {
      */
     @PostMapping
     public Article addArticle(Model model) {
+
+        logger.debug("POST request!");
+
         return null;
     }
 
