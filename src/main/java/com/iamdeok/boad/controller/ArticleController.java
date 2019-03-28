@@ -2,7 +2,7 @@ package com.iamdeok.boad.controller;
 
 import com.iamdeok.boad.dto.Article;
 import com.iamdeok.boad.dto.request.ArticleRequest;
-import com.iamdeok.boad.repository.ArticleRepository;
+import com.iamdeok.boad.service.ArticleService;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "/articles")
 public class ArticleController {
 
-    ArticleRepository articleRepository;
+    ArticleService articleService;
 
     //logger
     private static final Logger logger = LoggerFactory.getLogger(ArticleController.class);
@@ -29,11 +29,9 @@ public class ArticleController {
      */
     @PostMapping
     public Article addArticle(@RequestBody ArticleRequest articleRequestDto) {
-
         Article article = articleRequestDto.toEntity();
         logger.info("Post request : {}", article);
-
-        return articleRepository.save(article);
+        return articleService.addArticle(article);
     }
 
     /**
@@ -43,7 +41,7 @@ public class ArticleController {
     @GetMapping
     public Iterable<Article> getArticles() {
         logger.info("Get request for find all.");
-        return articleRepository.findAll();
+        return articleService.getArticles();
     }
 
     /**
@@ -54,8 +52,7 @@ public class ArticleController {
     @GetMapping(value = "/{articleId}")
     public Article getArticle(@PathVariable Long articleId) {
         logger.info("Get request for find one.");
-        //https://stackoverflow.com/questions/49316751/spring-data-jpa-findone-change-to-optional-how-to-use-this/49317013
-        return articleRepository.findById(articleId).orElse(null);
+        return articleService.getArticle(articleId);
     }
 
     /**
@@ -66,17 +63,7 @@ public class ArticleController {
     @PutMapping(value = "/{articleId}")
     public Article updateArticle(@PathVariable Long articleId, @RequestBody ArticleRequest articleRequestDto) {
         logger.info("Put request for update.");
-
-        Article article = articleRepository.findById(articleId).orElse(null);
-
-        if(article != null){
-            article.setArticleAuthor(articleRequestDto.getArticleAuthor());
-            article.setArticleContent(articleRequestDto.getArticleContent());
-            article.setArticlePassword(articleRequestDto.getArticlePassword());
-            article.setArticleSubject(articleRequestDto.getArticleSubject());
-        }
-
-        return articleRepository.save(article);
+        return articleService.updateArticle(articleId, articleRequestDto);
     }
 
     /**
@@ -86,6 +73,7 @@ public class ArticleController {
      */
     @DeleteMapping(value = "/{articleId}")
     public void removeArticle(@PathVariable Long articleId) {
-        articleRepository.deleteById(articleId);
+        logger.info("Delete request for delete.");
+        articleService.removeArticle(articleId);
     }
 }
