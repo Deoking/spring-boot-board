@@ -1,6 +1,6 @@
-package com.iamdeok.boad.repository;
+package com.iamdeok.board.repository;
 
-import com.iamdeok.boad.dto.Article;
+import com.iamdeok.board.dto.Article;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

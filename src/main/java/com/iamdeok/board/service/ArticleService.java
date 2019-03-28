@@ -1,8 +1,8 @@
-package com.iamdeok.boad.service;
+package com.iamdeok.board.service;
 
-import com.iamdeok.boad.dto.Article;
-import com.iamdeok.boad.dto.request.ArticleRequest;
-import com.iamdeok.boad.repository.ArticleRepository;
+import com.iamdeok.board.dto.Article;
+import com.iamdeok.board.dto.request.ArticleRequest;
+import com.iamdeok.board.repository.ArticleRepository;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

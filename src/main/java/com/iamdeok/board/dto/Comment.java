@@ -1,4 +1,4 @@
-package com.iamdeok.boad.dto;
+package com.iamdeok.board.dto;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

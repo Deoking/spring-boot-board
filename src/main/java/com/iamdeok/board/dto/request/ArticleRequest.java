@@ -1,6 +1,6 @@
-package com.iamdeok.boad.dto.request;
+package com.iamdeok.board.dto.request;
 
-import com.iamdeok.boad.dto.Article;
+import com.iamdeok.board.dto.Article;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

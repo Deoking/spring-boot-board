@@ -1,4 +1,4 @@
-package com.iamdeok.boad;
+package com.iamdeok.board;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

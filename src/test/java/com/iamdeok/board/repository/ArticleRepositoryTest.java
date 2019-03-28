@@ -1,6 +1,6 @@
-package com.iamdeok.boad.repository;
+package com.iamdeok.board.repository;
 
-import com.iamdeok.boad.dto.Article;
+import com.iamdeok.board.dto.Article;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,7 +26,7 @@ public class ArticleRepositoryTest {
 
     @Test
     public void test(){
-        //given
+        //Insert
         articleRepository.save(Article.builder()
                 .articleAuthor("Deoki")
                 .articleContent("Test Content.")
@@ -34,16 +34,14 @@ public class ArticleRepositoryTest {
                 .articlePassword("passw0rd")
                 .build());
 
-        //when
+        //Load list
         List<Article> ArticleList = articleRepository.findAll();
 
-        //then
+        //Result
         Article article = ArticleList.get(0);
         assertEquals(article.getArticleAuthor(), "Deoki");
         assertEquals(article.getArticleContent(), "Test Content.");
         assertEquals(article.getArticleSubject(), "Test Subject.");
         assertEquals(article.getArticlePassword(), "passw0rd");
-
-
     }
 }
