@@ -3,7 +3,6 @@ package com.iamdeok.board.dto;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.Date;
 
 /**
  * @author deoki
@@ -34,9 +33,11 @@ public class Article {
     @Column(length = 100, nullable = false)
     private String articleAuthor;
 
+    /*
     @Column(nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     @Temporal(TemporalType.TIMESTAMP)
     private Date articleDate;
+    */
 
     @Builder
     public Article(String articlePassword, String articleSubject, String articleContent, String articleAuthor){

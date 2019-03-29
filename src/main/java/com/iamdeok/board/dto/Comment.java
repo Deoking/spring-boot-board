@@ -4,7 +4,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.util.Date;
 
 /**
  * @author deoki
@@ -26,7 +25,4 @@ public class Comment {
 
     @Column
     private String commentAuthor;
-
-    @Column
-    private Date commentDate;
 }
